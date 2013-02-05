@@ -1,0 +1,1 @@
+../forecast/skels/project/manage.py
