@@ -9,7 +9,7 @@ from forecast.manager import BaseCommand, Argument
 class RunserverCommand(BaseCommand):
     help_text = "Start a server"
     parameters = (
-        Argument("--port", "-p", action="store", default=8000, type=int),
+        Argument("--port", "-p", action="store", default=8888, type=int),
     )
 
     def run(self, project, args, unknown_args):
