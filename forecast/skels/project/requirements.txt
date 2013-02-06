@@ -1,2 +1,2 @@
-tornado
-forecast
+tornado>=2.4,<2.5
+forecast>=0.1,<1.0
