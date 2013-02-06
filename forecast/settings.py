@@ -29,8 +29,8 @@ class Settings(object):
     def _import_settings(self, path):
         try:
             _, settings = import_object("%s.SETTINGS" % (path,))
-        except ImportError:
-            raise SettingsError("Module %s does not exists or does not define a SETTINGS identifier." % (path,))
+        except ImportError, ex:
+           raise SettingsError("Error importing %s.SETTINGS (%s)" % (path,ex))
 
         return settings
 
