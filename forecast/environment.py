@@ -8,8 +8,13 @@ from forecast.exceptions import ForecastError
 
 
 class Environment(object):
-    def __init__(self, environment=None):
+    def __init__(self, environment=None, base_list=None):
         self._current = environment
+
+        if base_list is None:
+            base_list = ["settings.base"]
+
+        self._base_list = base_list
 
     @property
     def current(self):
@@ -28,7 +33,7 @@ class Environment(object):
         return environment
 
     def get_settings(self):
-        settings = ["settings.base"]
+        settings = self._base_list
 
         if self.current != "base":
             settings.append("settings.%s" % (self.current,))

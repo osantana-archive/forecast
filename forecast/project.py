@@ -53,7 +53,7 @@ class Project(object):
         if "forecast.applications.core" not in self.applications:
             self.install_application("forecast.applications.core")
 
-        for application in self.settings['applications']:
+        for application in self.settings.get('applications', []):
             if isinstance(application, basestring):
                 application_path = application
                 base_url = ""
