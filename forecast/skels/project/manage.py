@@ -2,6 +2,7 @@
 # coding: utf-8
 # pragma: no cover
 
+
 import sys
 
 from forecast.exceptions import ForecastError
