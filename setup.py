@@ -5,7 +5,7 @@ path = os.path.dirname(__file__)
 
 setup(
     name='forecast',
-    version='0.1dev',
+    version='0.1',
     author="Osvaldo Santana Neto",
     author_email="forecast@osantana.me",
     packages=[
@@ -22,9 +22,20 @@ setup(
         'forecast.tests.test_app',
         'forecast.tests.test_app.commands',
     ],
-    scripts=[os.path.join(path, 'bin', 'forecast-admin.py')],
+    package_dir={
+        'forecast.skels.project': os.path.join(path, 'forecast', 'skels', 'project'),
+    },
+    package_data={
+        'forecast.skels.project': [
+            'requirements.txt',
+        ],
+    },
+    scripts=[
+        os.path.join(path, 'bin', 'forecast-admin.py')
+    ],
     url="http://github.com/osantana/forecast",
     license='MIT',
     description="A small wrapper around Tornado Web Server to force project structure",
     long_description=open(os.path.join(path, 'README.txt')).read(),
 )
+
