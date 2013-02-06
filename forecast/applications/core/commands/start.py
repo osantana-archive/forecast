@@ -57,6 +57,6 @@ class StartCommand(BaseCommand):
         dest = os.path.realpath(dest)
 
         if os.path.isdir(src):
-            shutil.copytree(src, dest, ignore=shutil.ignore_patterns("*.pyc"))
+            shutil.copytree(src, dest, ignore=shutil.ignore_patterns("*.py[co]"))
         else:
             shutil.copy(src, os.path.join(dest, os.path.basename(src)))
