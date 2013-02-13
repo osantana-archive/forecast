@@ -31,7 +31,8 @@ setup(
         ],
     },
     scripts=[
-        os.path.join(path, 'bin', 'forecast-admin.py')
+        os.path.join(path, 'bin', 'forecast-admin.py'),
+        os.path.join(path, 'bin', 'forecast')
     ],
     url="http://github.com/osantana/forecast",
     license='MIT',
