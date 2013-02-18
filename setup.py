@@ -53,6 +53,6 @@ setup(
     package_data={
         'forecast.skels.project': ['requirements.txt'],
     },
-    scripts=[os.path.join(path, 'bin', 'forecast-admin.py')],
+    scripts=[os.path.join(path, 'bin', 'forecast')],
 )
 
