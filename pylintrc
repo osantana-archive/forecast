@@ -1,0 +1,87 @@
+[MASTER]
+profile=no
+ignore=tests.py, urls.py, migrations
+persistent=yes
+
+[MESSAGES CONTROL]
+# C0111 - Missing docstring
+# W0142 - Used * or ** magic
+# W0232 - Class has no __init__ method
+# R0201 - Method could be a function
+disable=C0111,W0142,W0232,I0011,I0012,R0201,W0613
+
+[REPORTS]
+output-format=text
+include-ids=yes
+symbols=yes
+files-output=no
+reports=yes
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+comment=yes
+
+[BASIC]
+required-attributes=
+bad-functions=map,filter,apply,input
+module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+const-rgx=(([a-z_][a-z0-9_]*)|([A-Z_][A-Z0-9_]*)|(__.*__))$
+class-rgx=[A-Z_][a-zA-Z0-9]+$
+function-rgx=[a-z_][a-z0-9_]{2,50}$
+method-rgx=(([a-z_][a-z0-9_]{2,50})|(assert[A-Z][A-Za-z0-9]{2,50}))$
+attr-rgx=[a-z_][a-z0-9_]{2,30}$
+argument-rgx=[a-z_][a-z0-9_]{2,30}$
+variable-rgx=[a-z_][a-z0-9_]{2,30}$
+inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
+good-names=i,j,k,v,ex,_,v
+bad-names=foo,bar,baz,toto,tutu,tata,tmp,obj
+no-docstring-rgx=__.*__
+
+[FORMAT]
+max-line-length=180
+max-module-lines=1000
+indent-string='    '
+
+[MISCELLANEOUS]
+notes=FIXME,XXX,TODO
+
+[SIMILARITIES]
+min-similarity-lines=4
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=no
+
+[TYPECHECK]
+ignore-mixin-members=yes
+zope=no
+generated-members=objects,^[a-z][a-z0-9_]+_set$,_meta,id
+
+[VARIABLES]
+init-import=no
+dummy-variables-rgx=_|dummy
+additional-builtins=
+
+[CLASSES]
+ignore-iface-methods=isImplementedBy,deferred,extends,names,namesAndDescriptions,queryDescriptionFor,getBases,getDescriptionFor,getDoc,getName,getTaggedValue,getTaggedValueTags,isEqualOrExtendedBy,setTaggedValue,isImplementedByInstancesOf,adaptWith,is_implemented_by
+defining-attr-methods=__init__,__new__,setUp,initialize
+valid-classmethod-first-arg=cls
+valid-metaclass-classmethod-first-arg=mcs
+
+[DESIGN]
+max-args=10
+ignored-argument-names=_.*
+max-locals=15
+max-returns=6
+max-branchs=12
+max-statements=50
+max-parents=7
+max-attributes=7
+min-public-methods=0
+max-public-methods=60
+
+[IMPORTS]
+deprecated-modules=regsub,string,TERMIOS,Bastion,rexec
+import-graph=
+ext-import-graph=
+int-import-graph=
+
+[EXCEPTIONS]
+overgeneral-exceptions=Exception

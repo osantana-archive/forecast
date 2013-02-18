@@ -55,6 +55,10 @@ setup(
     },
     scripts=[os.path.join(path, 'bin', 'forecast')],
     test_suite="nose.collector",
-    tests_require=["nose>=1.2,<1.3"],
+    tests_require=[
+        "nose>=1.2,<1.3",
+        "coverage>=3.6,<3.7",
+        "pylint>=0.26,<0.27",
+    ],
 )
 
