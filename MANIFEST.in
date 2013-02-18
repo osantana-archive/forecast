@@ -1,0 +1,8 @@
+include README.txt
+include README.rst
+include CHANGES.txt
+include LICENSE.txt
+include setup.cfg
+include requirements.txt
+include bin/forecast
+include forecast/skels/project/requirements.txt

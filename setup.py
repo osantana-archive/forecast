@@ -54,5 +54,7 @@ setup(
         'forecast.skels.project': ['requirements.txt'],
     },
     scripts=[os.path.join(path, 'bin', 'forecast')],
+    test_suite="nose.collector",
+    tests_require=["nose>=1.2,<1.3"],
 )
 
