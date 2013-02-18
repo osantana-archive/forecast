@@ -1,2 +1,5 @@
 *.py[co]
+*.egg-info
 MANIFEST
+build
+dist
