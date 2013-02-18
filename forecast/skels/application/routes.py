@@ -3,9 +3,9 @@
 
 from forecast.routes import Route
 
-from .controllers import HelloWorldHandler
+from .controllers import IndexHandler
 
 
 routes = (
-    Route(r"^/$", HelloWorldHandler, name="hello-world"),
+    Route(r"^/$", IndexHandler, name="index"),
 )

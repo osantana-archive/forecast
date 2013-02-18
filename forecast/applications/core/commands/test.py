@@ -15,7 +15,7 @@ class TestCommand(BaseCommand):
 
     def run(self, project, args, unknown_args):
         try:
-            import nose
+            import nose  # pylint: disable-msg=F0401
 
             argv = ["discover"]
 

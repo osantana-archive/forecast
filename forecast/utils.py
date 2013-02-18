@@ -17,28 +17,28 @@ def import_object(name):
         raise ImportError("%s (%s)" % (ex, module_path))
 
     try:
-        object = getattr(module, object_name)
+        imported_object = getattr(module, object_name)
     except AttributeError:
         raise ImportError("No symbol named %s on module %s" % (object_name, module_path))
 
-    return module, object
+    return module, imported_object
 
 
-def package_contents(package_name, filter=None):
+def package_contents(package_name, filter_function=None):
     parts = package_name.split(".")
     pathname = None
     for part in parts:
         if pathname:
             pathname = [pathname]
-        file, pathname, description = imp.find_module(part, pathname)
-        if file:
+        file_object, pathname, _ = imp.find_module(part, pathname)
+        if file_object:
             raise ImportError('Not a package: %r', package_name)
 
     ret = set()
     for module in os.listdir(pathname):
         modname = os.path.splitext(module)[0]
 
-        if filter and filter(modname):
+        if filter_function and filter_function(modname):
             continue
 
         if module.endswith(MODULE_EXTENSIONS):

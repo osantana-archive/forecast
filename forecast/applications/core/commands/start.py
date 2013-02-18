@@ -19,10 +19,10 @@ class StartCommand(BaseCommand):
 
     def run(self, project, args, unknown_args):
         if not args.list_skels and not args.skel:
-            return self.help()
+            return self.help_message()
 
         if args.skel and not unknown_args:
-            return self.help()
+            return self.help_message()
 
         if args.list_skels:
             return self.list_skels()
@@ -37,7 +37,7 @@ class StartCommand(BaseCommand):
     def _get_skel_list(self):
         return set(os.path.splitext(skel)[0] for skel in os.listdir(self.skel_path) if not skel.startswith("_"))
 
-    def help(self):
+    def help_message(self):
         print("Use: %s start --list | --skel=(%s) name1 [name2 [name3]]" % (sys.argv[0], "|".join(self._get_skel_list())))
 
     def list_skels(self):

@@ -37,7 +37,7 @@ class Project(object):
             return
 
         try:
-            application_module, application_class = import_object("%s.Application" % (application_package,))
+            _, application_class = import_object("%s.Application" % (application_package,))
         except ImportError:
             raise ForecastError("%s.Application not found." % (application_package,))
 
@@ -57,7 +57,7 @@ class Project(object):
             if isinstance(application, basestring):
                 application_path = application
                 base_url = ""
-            elif isinstance(application, (tuple,list)):
+            elif isinstance(application, (tuple, list)):
                 application_path, base_url = application
             else:
                 raise SettingsError("Invalid application spec: %r" % (application,))

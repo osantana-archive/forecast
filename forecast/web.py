@@ -23,6 +23,6 @@ class RequestHandler(tornado.web.RequestHandler):
     def _execute(self, *args, **kwargs):
         try:
             with MiddlewareContextManager(self):
-                return super(RequestHandler, self)._execute(*args, **kwargs)
+                return super(RequestHandler, self)._execute(*args, **kwargs)  # pylint: disable-msg=W0212
         except MiddlewareError, ex:
             raise tornado.web.HTTPError(500, log_message=str(ex))

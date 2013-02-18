@@ -8,9 +8,9 @@ from forecast.utils import import_object, package_contents, camelize
 
 class HelperFunctionsTest(TestCase):
     def test_import_object(self):
-        module, object = import_object("forecast.tests.settings.base.SETTINGS")
+        module, imported_object = import_object("forecast.tests.settings.base.SETTINGS")
         self.assertTrue(repr(module).startswith("<module 'forecast.tests.settings.base' from"))
-        self.assertIsInstance(object, dict)
+        self.assertIsInstance(imported_object, dict)
 
     def test_fail_import_invalid_module(self):
         self.assertRaises(ImportError, import_object, "forecast.tests.unknown")

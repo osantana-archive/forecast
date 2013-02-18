@@ -35,7 +35,7 @@ class BaseApplication(object):
         ret = []
 
         try:
-            commands = package_contents("%s.commands" % (self.package_name,), filter=lambda name: name.startswith("_"))
+            commands = package_contents("%s.commands" % (self.package_name,), filter_function=lambda name: name.startswith("_"))
         except ImportError:
             return ret
 

@@ -39,11 +39,11 @@ class ShellCommand(BaseCommand):
         code.interact(local={'project': project})
 
     def ipython(self, project, args, unknown_args):
-        from IPython.frontend.terminal.ipapp import TerminalIPythonApp
+        from IPython.frontend.terminal.ipapp import TerminalIPythonApp  # pylint: disable-msg=F0401
         app = TerminalIPythonApp.instance()
         app.initialize(argv=[])
         app.start()
 
     def bpython(self, project, args, unknown_args):
-        import bpython
+        import bpython  # pylint: disable-msg=F0401
         bpython.embed()

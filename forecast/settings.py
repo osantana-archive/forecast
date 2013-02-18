@@ -30,7 +30,7 @@ class Settings(object):
         try:
             _, settings = import_object("%s.SETTINGS" % (path,))
         except ImportError, ex:
-           raise SettingsError("Error importing %s.SETTINGS (%s)" % (path,ex))
+            raise SettingsError("Error importing %s.SETTINGS (%s)" % (path, ex))
 
         return settings
 
@@ -45,3 +45,15 @@ class Settings(object):
             self.load()
 
         return self.settings.get(key, default)
+
+    def __delitem__(self, key):
+        raise SettingsError("Cannot unset a configuration in runtime.")
+
+    def __setitem__(self, key, value):
+        raise SettingsError("Cannot change a configuration in runtime.")
+
+    def __len__(self):
+        if not self.loaded:
+            self.load()
+
+        return len(self.settings)

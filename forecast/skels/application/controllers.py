@@ -3,12 +3,7 @@
 
 from forecast.web import RequestHandler
 
-from random import choice
 
-
-class HelloWorldHandler(RequestHandler):
+class IndexHandler(RequestHandler):
     def get(self):
-        hello = ["Ride the thunder!",
-                 "Bring the thunder!",
-                 "Make it rain"]
-        self.write(choice(hello))
+        self.write("Index")

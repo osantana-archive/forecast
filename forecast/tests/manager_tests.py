@@ -15,7 +15,7 @@ class DummyCommand(BaseCommand):
         return "ok"
 
 
-class EmptyCommand(BaseCommand):
+class EmptyCommand(BaseCommand):  # pylint: disable-msg=W0223
     pass
 
 
@@ -39,7 +39,7 @@ class ManagerTest(CoreTest):
         manager.register(DummyCommand())
         self.assertEquals("ok", manager.run(DummyProject(), argv=["dummy"]))
 
-    def test_register_empty_command_with_name_equals_module_name(self):
+    def test_register_empty_command_same_module_name(self):
         manager = self.get_manager()
         manager.register(EmptyCommand())
         self.assertIn("manager_tests", manager.commands)
