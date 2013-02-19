@@ -12,7 +12,9 @@ from .core_tests import CoreTest
 
 class ProjectTest(CoreTest):
     def test_required_core_app(self):
-        project = self.get_project()
+        env = Environment("base")
+        settings = Settings(env.get_settings(), _prefix="forecast.tests.")
+        project = self.get_project(settings=settings)
         project.install_applications()
         self.assertIn("forecast.applications.core", project.applications)
 
@@ -50,7 +52,9 @@ class ProjectTest(CoreTest):
         sys.argv = argv
 
     def test_tornado_app_settings(self):
-        project = self.get_project()
+        env = Environment("base")
+        settings = Settings(env.get_settings(), _prefix="forecast.tests.")
+        project = self.get_project(settings=settings)
         project.install_applications()
         app = project.get_tornado_application()
         self.assertIn("debug", app.settings)
