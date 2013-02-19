@@ -4,7 +4,7 @@ PYTHON ?= python
 
 all: clean-pyc clean-backupfiles check test
 
-clean: clean-pyc clean-patchfiles clean-backupfiles clean-generated
+clean: clean-pyc clean-patchfiles clean-backupfiles clean-generated clean-eggs clean-build clean-dist
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
@@ -17,6 +17,16 @@ clean-patchfiles:
 clean-backupfiles:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '*.bak' -exec rm -f {} +
+
+clean-eggs:
+	rm -rf *.egg
+	rm -rf *.egg-info
+
+clean-build:
+	rm -rf build
+
+clean-dist:
+	rm -rf dist
 
 pylint:
 	@pylint --rcfile pylintrc forecast
