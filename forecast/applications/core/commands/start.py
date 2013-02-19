@@ -60,3 +60,8 @@ class StartCommand(BaseCommand):
             shutil.copytree(src, dest, ignore=shutil.ignore_patterns("*.py[co]"))
         else:
             shutil.copy(src, os.path.join(dest, os.path.basename(src)))
+
+        postinstall = os.path.join(dest, "_postinstall.py")
+        if os.path.exists(postinstall):
+            execfile(postinstall, {"__file__": postinstall, "__name__": "__main__"})
+            os.remove(postinstall)
